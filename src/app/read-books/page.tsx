@@ -25,6 +25,15 @@ const colors = [
   'black',
 ];
 
+interface BarShapeProps {
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  index?: number;
+  isActive?: boolean;
+}
+
 // #endregion
 const getPath = (x: number, y: number, width: number, height: number) => {
   return `M${x},
@@ -66,6 +75,11 @@ const CustomColorLabel = (props: LabelProps) => {
 const ReadBooks = () => {
 
   const context = useContext(BookContext);
+
+  if (!context) {
+    return <p>BookProvider not found</p>;
+  }
+
   const { readBook } = context;
  const Data = readBook.map((book: IBooks) => {
    return {

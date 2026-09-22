@@ -10,7 +10,7 @@ interface BookDetailsCardProps {
 
 const BookDetailsCard = ({ book }: BookDetailsCardProps) => {
   const {
-    bookId:
+    
     bookName,
     author,
     image,
@@ -110,8 +110,8 @@ const BookDetailsCard = ({ book }: BookDetailsCardProps) => {
               {/* Buttons */}
               <div className="mt-7 flex flex-wrap gap-3">
                 <ReadBtn book={book} />
-                
-                <WishListBtn book={book}/>
+
+                <WishListBtn book={book} />
 
                 {/* <button className="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-100">
                   Add to Wishlist

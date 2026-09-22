@@ -3,11 +3,17 @@ import { BookContext } from '@/contex/BookContex';
 import { useContext } from 'react';
 import { IBooks } from '@/types/books.type';
 import { toast } from 'react-toastify';
+interface WishListBtnProps {
+  book: IBooks;
+}
+const WishListBtn = ({ book }: WishListBtnProps) => {
+   const context = useContext(BookContext);
 
-const WishListBtn = ({ book }: { book: IBooks }) => {
-  const context = useContext(BookContext);
+   if (!context) {
+     throw new Error('WishListBtn must be used inside BookProvider');
+   }
 
-  const { wishList, setWishList } = context;
+   const { wishList, setWishList } = context;
   
    const handleWishList = () => {
      const alreadyWishList = wishList.some(item => item.bookId === book.bookId);
