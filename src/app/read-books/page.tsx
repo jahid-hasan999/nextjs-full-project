@@ -52,7 +52,7 @@ const getPath = (x: number, y: number, width: number, height: number) => {
 const TriangleBar = (props: BarShapeProps) => {
   const { x, y, width, height, index } = props;
 
-  const color = colors[index % colors.length];
+  const color = colors[(index??0)% colors.length];
 
   return (
     <path
